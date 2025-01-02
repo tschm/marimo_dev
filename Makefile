@@ -17,7 +17,13 @@ help:  ## Display this help screen
 	@grep -E '^[a-z.A-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-18s\033[0m %s\n", $$1, $$2}' | sort
 
 
-.PHONY: jupyter
-jupyter: install  ## Install and start jupyter Lab
-	@uv run pip install jupyterlab
-	@uv run jupyter lab
+.PHONY: marimo
+marimo: install ## Install Marimo
+	@uv pip install marimo
+	@uv run marimo edit notebooks
+
+.PHONY: fmt
+fmt: venv ## Run autoformatting and linting
+	@uv pip install pre-commit
+	@uv run pre-commit install
+	@uv run pre-commit run --all-files
