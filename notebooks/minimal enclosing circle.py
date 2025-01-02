@@ -137,7 +137,8 @@ def _(con_3, min_circle_cvx, pos):
 
 @app.cell
 def _(con_3, min_circle_cvx, pos):
-    min_circle_cvx(points=pos, fct=con_3, solver="CLARABEL")
+    # CLARABEL is the only option :-)
+    min_circle_cvx(points=pos, fct=con_3)
     return
 
 
