@@ -40,6 +40,15 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 # Switch to non-root user
 USER ${username}
 
+# Copy requirements file
+COPY requirements.txt .
+
+RUN uv venv && \
+    uv pip install marimo && \
+    uv pip install --no-cache-dir -r requirements.txt
+
+ENV PATH=.venv/bin:$PATH
+
 # Expose port
 EXPOSE ${PORT}
 

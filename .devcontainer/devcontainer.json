@@ -4,16 +4,12 @@
     "hostRequirements": {
         "cpus": 4
     },
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {}
-    },
 
     "remoteUser": "marimo",
     "updateRemoteUserUID": true,
 
     "forwardPorts": [8080],
-    "postCreateCommand": "uv venv && uv pip install -r requirements.txt",
-    "postStartCommand": "uv run marimo --yes edit /workspaces/marimo_dev --host=localhost --port=8080 --headless --no-token",
+    "postStartCommand": "marimo --yes edit /workspaces/marimo_dev --host=localhost --port=8080 --headless --no-token",
     "customizations": {
         "vscode": {
             "settings": {
