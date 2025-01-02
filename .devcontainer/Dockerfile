@@ -4,7 +4,7 @@ FROM python:3.12-slim
 RUN apt-get update && \
     apt-get install -y git && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* \
+    rm -rf /var/lib/apt/lists/*
 
 # Copy UV installer
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
