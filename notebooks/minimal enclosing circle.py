@@ -12,13 +12,16 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md("We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions. We use a variety of tools and compare their performance.")
+    mo.md(
+        "We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions. We use a variety of tools and compare their performance."
+    )
     return
 
 
 @app.cell
 def _():
     import marimo as mo
+
     return (mo,)
 
 
@@ -32,6 +35,7 @@ def _(mo):
 def _():
     import plotly.graph_objects as go
     import numpy as np
+
     return go, np
 
 
@@ -109,6 +113,7 @@ def _(np):
         problem.solve(**kwargs)
 
         return {"Radius": r.value, "Midpoint": x.value}
+
     return con_1, con_2, con_3, cp, min_circle_cvx
 
 

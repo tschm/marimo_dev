@@ -22,6 +22,7 @@ marimo: install ## Install Marimo
 	@uv pip install marimo
 	@uv run marimo edit notebooks
 
+
 .PHONY: fmt
 fmt: venv ## Run autoformatting and linting
 	@uv pip install pre-commit
