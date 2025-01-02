@@ -1,29 +1,23 @@
 {
-    "name": "Marimo Development Container",
-    "dockerFile": "Dockerfile",
+    "name": "Python Dev Container",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
     "hostRequirements": {
         "cpus": 4
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {}
     },
-
-    "remoteUser": "marimo",
-    "updateRemoteUserUID": true,
-
     "forwardPorts": [8080],
-    "postCreateCommand": "uv venv && uv pip install -r requirements.txt",
-    "postStartCommand": "uv run marimo --yes edit /workspaces/marimo_dev --host=localhost --port=8080 --headless --no-token",
     "customizations": {
         "vscode": {
-            "settings": {
-                "python.defaultInterpreterPath": "/workspaces/.venv/bin/python",
-                "python.linting.enabled": true,
-                "python.linting.pylintEnabled": true,
-            },
             "extensions": [
                 "ms-python.python",
+                "ms-python.vscode-pylance",
+                "marimo-team.vscode-marimo"
             ]
         }
-    }
+    },
+    "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && . ~/.profile && uv venv && . .venv/bin/activate && uv pip install marimo && uv pip install -r requirements.txt",
+    "postStartCommand": "uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token",
+    "remoteUser": "vscode"
 }
