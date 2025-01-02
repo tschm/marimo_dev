@@ -41,7 +41,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 USER ${username}
 
 # Copy requirements file
-COPY requirements.txt .
+COPY requirements.txt /workspaces
 
 RUN uv venv && \
     uv pip install marimo && \
