@@ -9,12 +9,14 @@ file where we install uv to keep the construction fast and responsive.
 
 To set up a DevContainer for Marimo, we offer two strategies:
 an **external** Marimo server and an **embedded** server
-triggered by the marimo-team.vscode-marimo extension.
+triggered by the [marimo-team.vscode-marimo](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo) extension.
 
 Let's break down how you can create the DevContainer configuration
 step-by-step.
 
-## Structure Overview
+## A tale of two servers
+
+We support both but prefer the external marimo server.
 
 ### External Marimo Server
 
@@ -94,6 +96,8 @@ before you start the Marimo server.
 This command starts the external Marimo server using uv.
 The --headless flag ensures that the server runs without
 the GUI, and --no-token avoids authentication.
+
+## Working with a configuration
 
 Once the devcontainer.json is set up,
 you can open the project in GitHub Codespaces or
