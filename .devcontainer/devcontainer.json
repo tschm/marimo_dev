@@ -9,7 +9,7 @@
     "updateRemoteUserUID": true,
 
     "forwardPorts": [8080],
-    "postCreateCommand": "cd /workspaces && uv venv && uv pip install marimo && uv pip install -r requirements.txt",
+    "postCreateCommand": "cd /workspaces && uv pip install -r marimo_dev/requirements.txt",
     "postStartCommand": "marimo --yes edit /workspaces/marimo_dev --host=localhost --port=8080 --headless --no-token",
     "customizations": {
         "vscode": {
