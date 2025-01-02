@@ -1,11 +1,11 @@
 FROM python:3.12-slim
 
 ## Install build dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    git \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y --no-install-recommends \
+#    build-essential \
+#    git \
+#    curl \
+#    && rm -rf /var/lib/apt/lists/*
 
 # Copy UV installer
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
@@ -39,4 +39,4 @@ WORKDIR /workspace
 EXPOSE 2818
 #CMD ["uv", "run", "jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser"]
 
-CMD ["uv", "run", "marimo", "--yes", "edit", "--host=localhost", "--port=2818", "--headless",  "--no-token"]
+#CMD ["uv", "run", "marimo", "--yes", "edit", "--host=localhost", "--port=2818", "--headless",  "--no-token"]
