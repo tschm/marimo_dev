@@ -4,7 +4,7 @@ FROM python:3.12-slim
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
 RUN uv pip install --system --no-cache-dir marimo && \
-    mkdir -p /workspace \
+    mkdir -p /workspace
 
 # Create a non-root user
 #ARG USERNAME=vscode
@@ -21,6 +21,6 @@ WORKDIR /workspace
 
 # Set up entrypoint
 EXPOSE 2818
-EXPOSE 3015
+#EXPOSE 3015
 
-CMD ["marimo", "--yes", "edit", "/workspaces/marimo_dev/notebooks", "--host=localhost", "--port=2818", "--headless",  "--no-token"]
+#CMD ["marimo", "--yes", "edit", "/workspace/marimo_dev/notebooks", "--host=localhost", "--port=2818", "--headless",  "--no-token"]
