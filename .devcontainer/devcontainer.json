@@ -11,11 +11,11 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/workspaces/marimo_dev/.venv/bin/python",
+                "python.defaultInterpreterPath": ".venv/bin/python",
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
-                "marimo.pythonPath": "/workspaces/marimo_dev/.venv/bin/python",
-                "marimo.marimoPath": "/workspaces/marimo_dev/.venv/bin/marimo"
+                "marimo.pythonPath": ".venv/bin/python",
+                "marimo.marimoPath": ".venv/bin/marimo"
             },
             "extensions": [
                 "ms-python.python",
