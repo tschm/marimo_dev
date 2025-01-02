@@ -116,3 +116,11 @@ options or configure it to start automatically upon workspace open.
 This setup allows you to work both with an external Marimo server and an embedded one,
 depending on the mode you're in, and provides an
 integrated environment for working with Marimo in VSCode.
+
+## Last but not least
+
+Add a button to your repo's README file
+
+```bash
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tschm/marimo_dev)
+```
