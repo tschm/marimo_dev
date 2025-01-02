@@ -9,20 +9,24 @@
     },
     "forwardPorts": [2818],
     "postCreateCommand": "uv pip install --system -r requirements.txt",
-    "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true,
-        "marimo.port": 2818,
-        "marimo.host": "localhost",
-        "marimo.enableToken": false,
-        "marimo.showTerminal": false,
-        "marimo.debug": true,
-        "marimo.pythonPath": "/usr/local/bin/python",
-        "marimo.marimoPath": "/usr/local/bin/marimo"
-    },
-    "extensions": [
-        "ms-python.python",
-        "marimo-team.vscode-marimo",
-    ]
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "marimo.port": 2818,
+                "marimo.host": "localhost",
+                "marimo.enableToken": false,
+                "marimo.showTerminal": false,
+                "marimo.debug": true,
+                "marimo.pythonPath": "/usr/local/bin/python",
+                "marimo.marimoPath": "/usr/local/bin/marimo"
+            },
+            "extensions": [
+                "ms-python.python",
+                "marimo-team.vscode-marimo"
+            ]   
+        }
+    }
 }
