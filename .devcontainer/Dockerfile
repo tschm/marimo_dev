@@ -8,7 +8,7 @@ ARG user_gid=1000
 
 # Labels for metadata
 LABEL maintainer="Thomas Schmelzer <thomas.schmelzer@gmail.com>"
-LABEL description="Marimo notebook environment with Git support"
+LABEL description="Python environment with Git support"
 
 # Set environment variables
 ENV PORT=${port} \
@@ -37,20 +37,11 @@ RUN chown ${username}:${username} /workspaces
 # Copy UV installer and install packages
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
-#RUN uv venv && \
-#    uv pip install --no-cache-dir marimo==${marimo_version}
-
 # Switch to non-root user
 USER ${username}
-
-#RUN uv venv && \
-#    uv pip install --no-cache-dir marimo==${marimo_version}
 
 # Expose port
 EXPOSE ${PORT}
 
 # Use tini as init process
 ENTRYPOINT ["/usr/bin/tini", "--"]
-
-# Default command to run marimo
-# CMD ["marimo", "edit", "--port", "${PORT}", "--host", "0.0.0.0"]
