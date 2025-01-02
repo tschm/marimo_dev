@@ -10,6 +10,10 @@
     "forwardPorts": [8080],
     "customizations": {
         "vscode": {
+            "settings": {
+                "marimo.pythonPath": "/workspaces/.venv/bin/python",
+                "marimo.marimoPath": "/workspaces/.venv/bin/marimo"
+            },
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
