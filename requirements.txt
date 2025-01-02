@@ -1,0 +1,16 @@
+numpy==1.26.4
+scipy==1.11.4
+pandas==2.2.2
+lxml==5.2.2
+scikit-learn==1.5.0
+joblib==1.4.2
+statsmodels==0.14.2
+lifelines==0.28.0
+pygam==0.9.1
+l0bnb==1.0.0
+torch==2.3.0
+torchvision==0.18.0
+pytorch-lightning==2.2.5
+torchinfo==1.8.0
+torchmetrics==1.4.0.post0
+ISLP==0.4.0
