@@ -41,13 +41,14 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 USER ${username}
 
 # Copy requirements file
-COPY requirements.txt /workspaces
+#COPY requirements.txt /workspaces
 
 RUN uv venv && \
     uv pip install marimo && \
-    uv pip install --no-cache-dir -r requirements.txt
+    ls --all
+    #uv pip install --no-cache-dir -r requirements.txt
 
-ENV PATH=.venv/bin:$PATH
+ENV PATH=/workspaces/marimo_dev/.venv/bin:$PATH
 
 # Expose port
 EXPOSE ${PORT}
