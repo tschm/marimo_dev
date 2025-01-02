@@ -19,7 +19,7 @@
                 "marimo.host": "localhost",
                 "marimo.enableToken": false,
                 "marimo.showTerminal": false,
-                "marimo.debug": true,
+                "marimo.debug": false,
                 "marimo.pythonPath": "/usr/local/bin/python",
                 "marimo.marimoPath": "/usr/local/bin/marimo"
             },
