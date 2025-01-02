@@ -16,7 +16,7 @@
             ]
         }
     },
-    "postCreateCommand": "pip install marimo && pip install -r requirements.txt",
+    "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && . ~/.profile && uv venv && . .venv/bin/activate && uv pip install marimo && uv pip install -r requirements.txt",
     "postStartCommand": "marimo --yes edit --host=localhost --port=8080 --headless --no-token",
     "remoteUser": "vscode"
 }
