@@ -9,7 +9,7 @@ lifelines==0.28.0
 pygam==0.9.1
 l0bnb==1.0.0
 torch==2.3.0
-torchvision==0.18.0
+torchvision==0.20.1
 pytorch-lightning==2.2.5
 torchinfo==1.8.0
 torchmetrics==1.4.0.post0
