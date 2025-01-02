@@ -29,3 +29,16 @@ repos:
     rev: v1.29.0
     hooks:
       - id: typos
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.19.1
+    hooks:
+      - id: pyupgrade
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.30.0
+    hooks:
+      - id: check-dependabot
+        args: ["--verbose"]
+      - id: check-github-workflows
+        args: ["--verbose"]
