@@ -4,21 +4,43 @@ Create a DevContainer for Marimo.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tschm/marimo_dev)
 
-We follow two strategies here.
-An **external** Marimo server fired up at the start using
+We are currently using a simple [devcontainer.json](.devcontainer/devcontainer.json)
+file where we install uv to keep the construction fast and responsive.
 
-```json
-{"postStartCommand": "uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token"}
-```
+To set up a DevContainer for Marimo, we offer two strategies:
+an **external** Marimo server and an **embedded** server
+triggered by the marimo-team.vscode-marimo extension.
 
-and an **embedded** (into vscode) server induced by the
-***marimo-team.vscode-marimo*** extension.
+Let's break down how you can create the DevContainer configuration
+step-by-step.
 
-We use a simple devcontainer.json file
+## Structure Overview
+
+### External Marimo Server
+
+This is started using a postStartCommand
+that runs Marimo in the headless mode.
+
+### Embedded Marimo Server
+
+This uses the VSCode extension marimo-team.vscode-marimo
+to run Marimo from within the VSCode environment.
+
+## Steps for Creating the DevContainer
+
+### Create the DevContainer Configuration
+
+You'll create a .devcontainer/devcontainer.json file.
+This file will configure your container's environment and specify
+the necessary commands to run your external Marimo server.
+We'll install uv and any dependencies required for
+running Marimo inside the container.
+
+Example devcontainer.json
 
 ```json
 {
-    "name": "Python Dev Container",
+    "name": "Marimo Dev Container",
     "image": "mcr.microsoft.com/devcontainers/python:3.12",
     "hostRequirements": {
         "cpus": 4
@@ -49,4 +71,44 @@ We use a simple devcontainer.json file
 }
 ```
 
-We install uv to keep the construction fast and responsive.
+### Breakdown of the Configuration
+
+#### Base Image
+
+We're using a base image for the dev container (mcr.microsoft.com/devcontainers/python:3.12),
+but you can replace it with a custom image if needed.
+
+#### VSCode Extensions
+
+marimo-team.vscode-marimo: This extension integrates Marimo with VSCode, allowing you to trigger an embedded server when needed.
+ms-python.python: This extension provides Python support and is useful when working with uv.
+
+#### Post Create Command
+
+Installs uv after the container is created.
+This ensures the required dependencies are in place
+before you start the Marimo server.
+
+#### Post Start Command
+
+This command starts the external Marimo server using uv.
+The --headless flag ensures that the server runs without
+the GUI, and --no-token avoids authentication.
+
+Once the devcontainer.json is set up,
+you can open the project in GitHub Codespaces or
+use the DevContainer in local VSCode. The steps are as follows:
+
+- Push the configuration to your repository.
+- Open the repository in GitHub Codespaces or VSCode with the DevContainer.
+- The Marimo server will be started automatically in the background by the postStartCommand.
+You can move between VSCode and this server back and forth.
+
+- VSCode Embedded Server
+Ensure the marimo-team.vscode-marimo extension is installed in the DevContainer.
+You can toggle the embedded server using the extension's command palette
+options or configure it to start automatically upon workspace open.
+
+This setup allows you to work both with an external Marimo server and an embedded one,
+depending on the mode you're in, and provides an
+integrated environment for working with Marimo in VSCode.
