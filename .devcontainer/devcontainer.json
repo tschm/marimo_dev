@@ -12,25 +12,17 @@
     "updateRemoteUserUID": true,
 
     "forwardPorts": [8080],
-    "postCreateCommand": "uv pip install -r requirements.txt --target /workspaces/.venv",
-    "postStartCommand": "marimo --yes edit /workspaces/marimo_dev --host=localhost --port=8080 --headless --no-token",
+    "postCreateCommand": "uv pip install --system -r requirements.txt",
+    "postStartCommand": "uv run marimo --yes edit /workspaces/marimo_dev --host=localhost --port=8080 --headless --no-token",
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/workspaces/.venv/bin/python",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
-                "marimo.port": 8080,
-                "marimo.host": "localhost",
-                "marimo.enableToken": false,
-                "marimo.showTerminal": false,
-                "marimo.debug": false,
-                "marimo.pythonPath": "/workspaces/.venv/bin/python",
-                "marimo.marimoPath": "/workspaces/.venv/bin/marimo"
             },
             "extensions": [
                 "ms-python.python",
-                "marimo-team.vscode-marimo"
             ]
         }
     }

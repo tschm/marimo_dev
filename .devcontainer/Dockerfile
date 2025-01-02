@@ -1,7 +1,6 @@
 FROM python:3.12-slim
 
 # Build arguments for flexibility
-ARG marimo_version=0.10.9
 ARG port=8080
 ARG username=marimo
 ARG user_uid=1000
@@ -9,15 +8,13 @@ ARG user_gid=1000
 
 # Labels for metadata
 LABEL maintainer="Thomas Schmelzer <thomas.schmelzer@gmail.com>"
-LABEL version="${marimo_version}"
 LABEL description="Marimo notebook environment with Git support"
 
 # Set environment variables
 ENV PORT=${port} \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1 \
-    PATH="/workspaces/.venv/bin:${PATH}"
+    PIP_NO_CACHE_DIR=1
 
 # Create non-root user
 RUN groupadd --gid ${user_gid} ${username} && \
@@ -46,8 +43,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 # Switch to non-root user
 USER ${username}
 
-RUN uv venv && \
-    uv pip install --no-cache-dir marimo==${marimo_version}
+#RUN uv venv && \
+#    uv pip install --no-cache-dir marimo==${marimo_version}
 
 # Expose port
 EXPOSE ${PORT}
@@ -56,4 +53,4 @@ EXPOSE ${PORT}
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 # Default command to run marimo
-CMD ["marimo", "edit", "--port", "${PORT}", "--host", "0.0.0.0"]
+# CMD ["marimo", "edit", "--port", "${PORT}", "--host", "0.0.0.0"]
