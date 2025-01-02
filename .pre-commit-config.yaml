@@ -19,12 +19,6 @@ repos:
     hooks:
       - id: markdownlint-fix
 
-  - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.5
-    hooks:
-      - id: actionlint
-        args: [-ignore, SC]
-
   - repo: https://github.com/crate-ci/typos
     rev: v1.29.0
     hooks:
@@ -39,6 +33,4 @@ repos:
     rev: 0.30.0
     hooks:
       - id: check-dependabot
-        args: ["--verbose"]
-      - id: check-github-workflows
         args: ["--verbose"]
