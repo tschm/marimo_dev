@@ -15,6 +15,6 @@
             ]
         }
     },
-    "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && . ~/.profile && uv pip install marimo",
+    "postCreateCommand": "whoami && curl -LsSf https://astral.sh/uv/install.sh | sh && . ~/.profile && uv pip install --system marimo",
     "remoteUser": "vscode"
 }
