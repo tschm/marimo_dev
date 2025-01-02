@@ -12,5 +12,5 @@ torch==2.3.0
 torchvision==0.18.0
 pytorch-lightning==2.2.5
 torchinfo==1.8.0
-torchmetrics==1.4.0.post0
+torchmetrics==1.6.1
 ISLP==0.4.0
