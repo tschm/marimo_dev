@@ -1,17 +1,10 @@
 FROM python:3.12-slim
 
-## Install build dependencies
-#RUN apt-get update && apt-get install -y --no-install-recommends \
-#    build-essential \
-#    git \
-#    curl \
-#    && rm -rf /var/lib/apt/lists/*
-
 # Copy UV installer
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
 RUN uv pip install --system --no-cache-dir marimo && \
-    mkdir -p /workspace    #ipykernel
+    mkdir -p /workspace \
 
 # Create a non-root user
 #ARG USERNAME=vscode
@@ -26,17 +19,8 @@ RUN uv pip install --system --no-cache-dir marimo && \
 # Configure Jupyter
 WORKDIR /workspace
 
-#RUN jupyter notebook --generate-config \
-#    && echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py \
-#    && echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py \
-#    && echo "c.NotebookApp.allow_root = True" >> ~/.jupyter/jupyter_notebook_config.py
-
-# Set up health check
-#HEALTHCHECK --interval=30s --timeout=3s \
-#  CMD curl -f http://localhost:8888 || exit 1
-
 # Set up entrypoint
 EXPOSE 2818
-#CMD ["uv", "run", "jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser"]
+EXPOSE 3015
 
-CMD ["uv", "run", "marimo", "--yes", "edit", "--host=localhost", "--port=2818", "--headless",  "--no-token"]
+#CMD ["uv", "run", "marimo", "--yes", "edit", "--host=localhost", "--port=2818", "--headless",  "--no-token"]
