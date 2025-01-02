@@ -26,7 +26,7 @@
             "extensions": [
                 "ms-python.python",
                 "marimo-team.vscode-marimo"
-            ]   
+            ]
         }
     }
 }
