@@ -15,6 +15,6 @@
             ]
         }
     },
-    "postCreateCommand": "pip install marimo && cat requirements.txt",
+    "postCreateCommand": "pip install marimo && pip install -r requirements.txt",
     "remoteUser": "vscode"
 }
