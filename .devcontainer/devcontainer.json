@@ -3,7 +3,7 @@
     "dockerFile": "Dockerfile",
     "forwardPorts": [2818],
     "postCreateCommand": "uv pip install --system -r requirements.txt",
-    "postStartCommand": "uv run marimo --yes edit /workspace/marimo_dev --host=localhost --port=2818 --headless --no-token",
+    "postStartCommand": "uv run marimo --yes edit /workspaces/marimo_dev --host=localhost --port=2818 --headless --no-token",
     "customizations": {
         "vscode": {
             "settings": {

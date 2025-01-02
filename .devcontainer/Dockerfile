@@ -10,10 +10,10 @@ RUN apt-get update && \
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
 
 RUN uv pip install --system --no-cache-dir marimo && \
-    mkdir -p /workspace
+    mkdir -p /workspaces
 
 # Configure Jupyter
-WORKDIR /workspace
+WORKDIR /workspaces
 
 # Set up entrypoint
 EXPOSE 2818
