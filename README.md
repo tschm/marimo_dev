@@ -67,7 +67,7 @@ Example devcontainer.json
             ]
         }
     },
-    "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && . ~/.profile && uv venv && . .venv/bin/activate && uv pip install marimo && uv pip install -r requirements.txt",
+    "onCreateCommand": ".devcontainer/startup.sh",
     "postStartCommand": "uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token",
     "remoteUser": "vscode"
 }
@@ -85,11 +85,12 @@ but you can replace it with a custom image if needed.
 marimo-team.vscode-marimo: This extension integrates Marimo with VSCode, allowing you to trigger an embedded server when needed.
 ms-python.python: This extension provides Python support and is useful when working with uv.
 
-#### Post Create Command
+#### On Create Command
 
 Installs uv after the container is created.
 This ensures the required dependencies are in place
 before you start the Marimo server.
+You may want to adjust the script for your needs.
 
 #### Post Start Command
 
