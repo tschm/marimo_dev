@@ -3,8 +3,11 @@
   "extends": [
     "config:recommended"
   ],
+  "automerge": true,
+  "ignorePaths": [
+    "**/.python-version"
+  ],
   "pre-commit": {
-    "enabled": true,
-    "automerge": true
+    "enabled": true
   }
 }
