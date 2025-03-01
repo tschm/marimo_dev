@@ -7,7 +7,7 @@ repos:
       - id: check-yaml
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: 'v0.9.4'
+    rev: 'v0.9.9'
     hooks:
       - id: ruff
         args: [ --fix, --exit-non-zero-on-fix ]
@@ -21,7 +21,7 @@ repos:
         args: ["--disable", "MD013"]
 
   - repo: https://github.com/crate-ci/typos
-    rev: v1.29.5
+    rev: v1.30.0
     hooks:
       - id: typos
 
@@ -31,12 +31,12 @@ repos:
       - id: pyupgrade
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.31.1
+    rev: 0.31.2
     hooks:
       - id: check-renovate
         args: ["--verbose"]
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.8.2
+    rev: 1.8.3
     hooks:
     - id: bandit
