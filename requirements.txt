@@ -1,7 +1,7 @@
 numpy==2.2.3
 pandas==2.2.3
 clarabel==0.10.0
-cvxpy-base==1.6.3
+cvxpy-base==1.6.4
 plotly==6.0.0
 kaleido==0.2.1
 pre-commit==4.1.0
