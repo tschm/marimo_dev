@@ -1,7 +1,6 @@
 name: pre-commit
 
 on:
-  pull_request:
   push:
 
 jobs:
@@ -14,9 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: cvxgrp/.github/actions/environment@v2.2.7
+        uses: cvxgrp/.github/actions/environment@v2.2.8
 
-      - uses: cvxgrp/.github/actions/deptry@main
+      - uses: cvxgrp/.github/actions/deptry@v2.2.8
         with:
           source-folder: notebooks
           options: '--per-rule-ignores "DEP002=clarabel|kaleido"'
