@@ -26,6 +26,11 @@ fmt: venv ## Run code formatting and linting
 	@uv run pre-commit install
 	@uv run pre-commit run --all-files
 
+deptry: install ## Run deptry
+	@printf "$(BLUE)Running deptry...$(RESET)\n"
+	@uv pip install deptry
+	@uv run deptry --per-rule-ignores "DEP002=clarabel|kaleido" notebooks
+
 ##@ Cleanup
 
 clean: ## Clean generated files and directories
