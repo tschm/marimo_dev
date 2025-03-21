@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: tschm/cradle/environment@v0.1.56
+        uses: tschm/cradle/actions/environment@v0.1.56
 
       - uses: tschm/cradle/actions/deptry@main
         with:
