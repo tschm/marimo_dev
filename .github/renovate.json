@@ -4,12 +4,6 @@
     "config:recommended"
   ],
   "automerge": true,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": [
-      "on friday before 3pm"
-    ]
-  },
   "pre-commit": {
     "enabled": true,
     "schedule": [
