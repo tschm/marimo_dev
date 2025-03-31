@@ -15,7 +15,7 @@ jobs:
       - name: "Build the virtual environment for ${{ github.repository }}"
         uses: tschm/cradle/actions/environment@v0.1.59
 
-      - uses: tschm/cradle/actions/deptry@main
+      - uses: tschm/cradle/actions/deptry@v0.1.59
         with:
           source-folder: notebooks
           options: '--per-rule-ignores "DEP002=clarabel|kaleido"'
