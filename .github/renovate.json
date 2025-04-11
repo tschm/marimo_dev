@@ -7,9 +7,14 @@
     ":semanticCommits",
     ":pinVersions"
   ],
-  "enabledManagers": ["pip_requirements", "pre-commit", "github-actions", "devcontainer"],
+  "enabledManagers": [
+    "pip_requirements",
+    "pre-commit",
+    "github-actions",
+    "devcontainer"
+  ],
   "timezone": "Asia/Dubai",
   "schedule": [
-      "before 10am every wednesday"
+    "before 10am on wednesday"
   ]
 }
