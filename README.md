@@ -1,5 +1,7 @@
 # Marimo dev
 
+[![CodeFactor](https://www.codefactor.io/repository/github/tschm/marimo_dev/badge)](https://www.codefactor.io/repository/github/tschm/marimo_dev)
+
 Create a DevContainer for Marimo.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tschm/marimo_dev)
