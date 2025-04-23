@@ -1,6 +1,8 @@
 # Marimo dev
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/tschm/marimo_dev/badge)](https://www.codefactor.io/repository/github/tschm/marimo_dev)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://github.com/renovatebot/renovate)
 
 Create a DevContainer for Marimo.
 
