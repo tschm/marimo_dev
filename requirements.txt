@@ -3,4 +3,4 @@ clarabel==0.10.0
 cvxpy-base==1.6.5
 plotly==6.0.1
 kaleido==0.2.1
-marimo==0.13.6
+marimo==0.13.7
