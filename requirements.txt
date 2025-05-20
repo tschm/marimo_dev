@@ -1,4 +1,4 @@
-numpy==2.2.5
+numpy==2.2.6
 clarabel==0.10.0
 cvxpy-base==1.6.5
 plotly==6.1.0
