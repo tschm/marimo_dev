@@ -2,5 +2,5 @@ numpy==2.3.0
 clarabel==0.11.0
 cvxpy-base==1.6.5
 plotly==6.1.2
-kaleido==0.2.1
 marimo==0.13.15
+kaleido==0.2.1

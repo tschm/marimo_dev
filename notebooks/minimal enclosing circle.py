@@ -1,24 +1,27 @@
 import marimo
 
-__generated_with = "0.10.19"
+__generated_with = "0.13.15"
 app = marimo.App(width="medium")
 
-
-@app.cell
-def _(mo):
-    mo.md("""# Problem""")
-    return
+with app.setup:
+    import plotly.graph_objects as go
+    import numpy as np
+    import cvxpy as cp
 
 
 @app.cell
 def _(mo):
     mo.md(
-        """We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions. We use a variety of tools and compare their performance."""
+        """
+    # Problem
+
+    We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions. We use a variety of tools and compare their performance.
+    """
     )
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     import marimo as mo
 
@@ -33,20 +36,12 @@ def _(mo):
 
 @app.cell
 def _():
-    import plotly.graph_objects as go
-    import numpy as np
-
-    return go, np
-
-
-@app.cell
-def _(np):
     pos = np.random.randn(1000, 11)
     return (pos,)
 
 
 @app.cell
-def _(go, pos):
+def _(pos):
     # Create the scatter plot
     fig = go.Figure(
         data=go.Scatter(
@@ -65,10 +60,10 @@ def _(go, pos):
     )
 
     # Show the plot
-    fig.show()
+    fig
 
     # plot makes really only sense when using d=2
-    return (fig,)
+    return
 
 
 @app.cell
@@ -77,35 +72,30 @@ def _(mo):
     return
 
 
-@app.cell
-def _(np):
-    import cvxpy as cp
+@app.function
+def min_circle_cvx(points, **kwargs):
+    # cvxpy variable for the radius
+    r = cp.Variable(1, name="Radius")
+    # cvxpy variable for the midpoint
+    x = cp.Variable(points.shape[1], name="Midpoint")
 
-    def min_circle_cvx(points, **kwargs):
-        # cvxpy variable for the radius
-        r = cp.Variable(1, name="Radius")
-        # cvxpy variable for the midpoint
-        x = cp.Variable(points.shape[1], name="Midpoint")
+    objective = cp.Minimize(r)
+    constraints = [
+        cp.SOC(
+            r * np.ones(points.shape[0]),
+            points - cp.outer(np.ones(points.shape[0]), x),
+            axis=1,
+        )
+    ]
 
-        objective = cp.Minimize(r)
-        constraints = [
-            cp.SOC(
-                r * np.ones(points.shape[0]),
-                points - cp.outer(np.ones(points.shape[0]), x),
-                axis=1,
-            )
-        ]
+    problem = cp.Problem(objective=objective, constraints=constraints)
+    problem.solve(**kwargs)
 
-        problem = cp.Problem(objective=objective, constraints=constraints)
-        problem.solve(**kwargs)
-
-        return {"Radius": r.value, "Midpoint": x.value}
-
-    return cp, min_circle_cvx
+    return {"Radius": r.value, "Midpoint": x.value}
 
 
 @app.cell
-def _(min_circle_cvx, pos):
+def _(pos):
     min_circle_cvx(points=pos, solver="CLARABEL")
     return
 
