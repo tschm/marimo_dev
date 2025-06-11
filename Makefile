@@ -41,7 +41,7 @@ clean: ## Clean generated files and directories
 marimo: venv ## Start a Marimo server
 	@printf "$(BLUE)Start Marimo server...$(RESET)\n"
 	#@uv pip install --no-cache-dir marimo
-	@uvx marimo edit --sandbox notebooks
+	@uvx marimo edit --sandbox notebooks/minimal_enclosing_circle.py
 
 ##@ Help
 
