@@ -14,9 +14,9 @@ venv:
 	@curl -LsSf https://astral.sh/uv/install.sh | sh
 	@uv venv --python 3.12
 
-install: venv ## Install all dependencies using uv
-	@printf "$(BLUE)Installing dependencies...$(RESET)\n"
-	@uv pip install --no-cache-dir -r requirements.txt
+#install: venv ## Install all dependencies using uv
+#	@printf "$(BLUE)Installing dependencies...$(RESET)\n"
+#	@uv pip install --no-cache-dir -r requirements.txt
 
 ##@ Code Quality
 
@@ -25,10 +25,10 @@ fmt: venv ## Run code formatting and linting
 	@uvx pre-commit install
 	@uvx pre-commit run --all-files
 
-deptry: install ## Run deptry
-	@printf "$(BLUE)Running deptry...$(RESET)\n"
-	@uv pip install deptry
-	@uv run deptry --per-rule-ignores "DEP002=clarabel|kaleido" notebooks
+#deptry: install ## Run deptry
+#	@printf "$(BLUE)Running deptry...$(RESET)\n"
+#	@uv pip install deptry
+#	@uv run deptry --per-rule-ignores "DEP002=clarabel|kaleido" notebooks
 
 ##@ Cleanup
 
@@ -38,10 +38,10 @@ clean: ## Clean generated files and directories
 
 ##@ Marimo
 
-marimo: install ## Start a Marimo server
+marimo: venv ## Start a Marimo server
 	@printf "$(BLUE)Start Marimo server...$(RESET)\n"
-	@uv pip install --no-cache-dir marimo
-	@uv run marimo edit notebooks
+	#@uv pip install --no-cache-dir marimo
+	@uvx marimo edit --sandbox notebooks
 
 ##@ Help
 

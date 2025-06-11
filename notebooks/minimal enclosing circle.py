@@ -4,7 +4,7 @@
 #     "marimo==0.13.15",
 #     "clarabel==0.11.0",
 #     "cvxpy-base==1.6.6",
-#     "plotly==6.1.2"
+#     "plotly==6.1.2",
 # ]
 # ///
 import marimo
