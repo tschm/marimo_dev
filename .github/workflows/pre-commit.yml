@@ -19,4 +19,4 @@ jobs:
       - uses: tschm/cradle/actions/deptry@v0.1.72
         with:
           source-folder: notebooks
-          options: '--per-rule-ignores "DEP002=clarabel|kaleido"'
+          options: '--per-rule-ignores "DEP002=clarabel|kaleido|cvxpy-base" "DEP001=cvxpy"'
