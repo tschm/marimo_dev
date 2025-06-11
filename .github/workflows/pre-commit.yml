@@ -12,8 +12,9 @@ jobs:
   deptry:
     runs-on: ubuntu-latest
     steps:
-      - name: "Build the virtual environment for ${{ github.repository }}"
-        uses: tschm/cradle/actions/environment@v0.1.72
+      # Check out the repository code
+      - name: Checkout [${{ github.repository }}]
+        uses: actions/checkout@v4
 
       - uses: tschm/cradle/actions/deptry@v0.1.72
         with:
