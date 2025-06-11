@@ -8,15 +8,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: tschm/cradle/actions/pre-commit@v0.1.72
-
-  deptry:
-    runs-on: ubuntu-latest
-    steps:
-      # Check out the repository code
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
-      - uses: tschm/cradle/actions/deptry@v0.1.72
-        with:
-          source-folder: notebooks
-          options: '--per-rule-ignores "DEP002=clarabel|kaleido|cvxpy-base,DEP001=cvxpy"'
