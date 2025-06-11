@@ -29,6 +29,7 @@
             ]
         }
     },
+    "onCreateCommand": ".devcontainer/startup.sh",  // Run startup script to set up environment
     "postStartCommand": "uvx marimo --yes edit --host=localhost --port=8080 --headless --no-token --sandbox",
     "remoteUser": "vscode"
 }
