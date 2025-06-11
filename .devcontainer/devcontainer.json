@@ -30,6 +30,6 @@
         }
     },
     "onCreateCommand": ".devcontainer/startup.sh",
-    "postStartCommand": "uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token",
+    "postStartCommand": "uvx marimo --yes edit --host=localhost --port=8080 --headless --no-token",
     "remoteUser": "vscode"
 }
