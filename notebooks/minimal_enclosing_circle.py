@@ -14,9 +14,9 @@ __generated_with = "0.13.15"
 app = marimo.App(width="medium")
 
 with app.setup:
-    import plotly.graph_objects as go
-    import numpy as np
     import cvxpy as cp
+    import numpy as np
+    import plotly.graph_objects as go
 
 
 @app.cell
@@ -46,27 +46,24 @@ def _(mo):
 
 @app.cell
 def _():
-    pos = np.random.randn(1000, 11)
+    rng = np.random.default_rng()
+    pos = rng.standard_normal((1000, 11))
     return (pos,)
 
 
 @app.cell
 def _(pos):
     # Create the scatter plot
-    fig = go.Figure(
-        data=go.Scatter(
-            x=pos[:, 0], y=pos[:, 1], mode="markers", marker=dict(symbol="x", size=10)
-        )
-    )
+    fig = go.Figure(data=go.Scatter(x=pos[:, 0], y=pos[:, 1], mode="markers", marker={"symbol": "x", "size": 10}))
 
     # Update layout for equal aspect ratio and axis labels
     fig.update_layout(
         xaxis_title="x",
         yaxis_title="y",
-        yaxis=dict(
-            scaleanchor="x",
-            scaleratio=1,
-        ),
+        yaxis={
+            "scaleanchor": "x",
+            "scaleratio": 1,
+        },
     )
 
     # Show the plot

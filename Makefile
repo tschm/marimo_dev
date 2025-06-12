@@ -5,20 +5,18 @@ RESET := \033[0m
 
 .DEFAULT_GOAL := help
 
-.PHONY: help verify install fmt marimo clean
+.PHONY: help fmt marimo clean test
 
 ##@ Development Setup
 
-venv:
-	@printf "$(BLUE)Creating virtual environment...$(RESET)\n"
+uv:
+	@printf "$(BLUE)Install uv...$(RESET)\n"
 	@curl -LsSf https://astral.sh/uv/install.sh | sh
-	@uv venv --python 3.12
 
 ##@ Code Quality
 
-fmt: venv ## Run code formatting and linting
+fmt: uv ## Run code formatting and linting
 	@printf "$(BLUE)Running formatters and linters...$(RESET)\n"
-	@uvx pre-commit install
 	@uvx pre-commit run --all-files
 
 ##@ Cleanup
@@ -29,9 +27,9 @@ clean: ## Clean generated files and directories
 
 ##@ Marimo
 
-marimo: venv ## Start a Marimo server
+marimo: uv ## Start a Marimo server
 	@printf "$(BLUE)Start Marimo server...$(RESET)\n"
-	@uvx marimo edit --sandbox notebooks/minimal_enclosing_circle.py
+	@uvx marimo edit --host=localhost --port=8080 --headless --no-token --sandbox notebooks/minimal_enclosing_circle.py
 
 ##@ Help
 
