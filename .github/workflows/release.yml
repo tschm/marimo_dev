@@ -33,5 +33,5 @@ jobs:
         with:
           notebooks: notebooks         # Directory containing the notebooks to export as plain html notebooks
           apps: notebooks              # Directory containing the notebooks to export as apps
-          # notebooks_wasm: notebooks    # Directory containing the notebooks to export as interactive notebooks 
+          # notebooks_wasm: notebooks    # Directory containing the notebooks to export as interactive notebooks
           publish: 'true'  # Enable publishing of the exported notebooks
