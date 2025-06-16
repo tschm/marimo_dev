@@ -1,30 +1,36 @@
+# This workflow handles version bumping and publishing of the project
+# It can only be triggered manually through the GitHub UI
+
 name: Bump version and publish
 
+# Define when this workflow will run
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Manual trigger only
 
+# Define the default permissions needed for this workflow
 permissions:
-  contents: write
+  contents: write  # Write access to repository contents for tagging and publishing
 
 jobs:
+  # This job creates a new version tag for the repository
   tagging:
-    permissions:
-      contents: write
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
+      # Generate a new version tag based on conventional commits
       - name: Generate Tag
         uses: tschm/cradle/actions/tag@v0.1.72
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
 
-  # The build job exports marimo notebooks to static HTML/WebAssembly
+  # This job exports marimo notebooks to static HTML/WebAssembly
   publish:
-    needs: tagging
+    needs: tagging  # This job runs after the tagging job completes successfully
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
+      # Export notebooks and publish them
       - uses: tschm/marimushka/actions/export@v0.0.17
         with:
-          notebooks: notebooks
-          publish: 'true'
+          notebooks: notebooks  # Directory containing the notebooks to export as notebooks
+          apps: notebooks       # Directory containing the notebooks to export as apps
+          publish: 'true'  # Enable publishing of the exported notebooks

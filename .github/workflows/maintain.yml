@@ -1,5 +1,5 @@
-# This workflow builds and deploys marimo notebooks to GitHub Pages
-# It runs automatically when changes are pushed to the main branch or can be triggered manually
+# This workflow performs maintenance tasks for the repository
+# It runs automatically when changes are pushed to any branch
 
 name: MAINTENANCE
 
@@ -7,17 +7,23 @@ name: MAINTENANCE
 on:
   push
 
+# Define the permissions needed for this workflow
 permissions:
-  contents: 'read'
+  contents: 'read'  # Read-only access to repository contents
 
 jobs:
+  # Run pre-commit hooks to ensure code quality and consistency
   pre-commit:
     runs-on: ubuntu-latest
     steps:
       # Run pre-commit checks using the cradle action
+      # This checks code formatting, linting, and other quality checks
       - uses: tschm/cradle/actions/pre-commit@v0.1.72
 
+  # Run tests on the marimo notebooks
   test:
+    # Use a reusable workflow from the marimushka repository
     uses: tschm/marimushka/.github/workflows/test.yml@v0.0.17
     with:
+      # Specify the directory containing the notebooks to test
       notebook-dir: notebooks
