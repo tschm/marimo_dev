@@ -3,9 +3,11 @@ name: Bump version and publish
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
 
 jobs:
-  tag:
+  tagging:
     permissions:
       contents: write
 
@@ -16,3 +18,13 @@ jobs:
         uses: tschm/cradle/actions/tag@v0.1.72
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  # The build job exports marimo notebooks to static HTML/WebAssembly
+  publish:
+    needs: tagging
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    steps:
+      - uses: tschm/marimushka/actions/export@v0.0.17
+        with:
+          notebooks: notebooks
+          publish: 'true'

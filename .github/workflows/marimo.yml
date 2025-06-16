@@ -10,22 +10,11 @@ permissions:
   contents: read  # Read-only access to repository contents
 
 jobs:
-  run-notebook:
+  test-notebook:
     name: Run ${{ matrix.notebook }}
     runs-on: ubuntu-latest
 
     steps:
-      # Check out the repository code
-      - name: Checkout [${{ github.repository }}]
-        uses: actions/checkout@v4
-
-      - name: Install the latest version of uv and set the python version
-        uses: astral-sh/setup-uv@v6
-        with:
-          python-version: 3.13
-
-      - name: Run notebook
-        run: |
-          uvx marimo run notebooks/minimal_enclosing_circle.py --sandbox --no-browser & pid=$!
-          sleep 1
-          kill $pid
+        - uses: tschm/marimushka/.github/workflows/test.yml@v0.0.17
+          with:
+            notebook-dir: notebooks
