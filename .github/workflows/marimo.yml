@@ -10,11 +10,7 @@ permissions:
   contents: read  # Read-only access to repository contents
 
 jobs:
-  test-notebook:
-    name: Run ${{ matrix.notebook }}
-    runs-on: ubuntu-latest
-
-    steps:
-        - uses: tschm/marimushka/.github/workflows/test.yml@v0.0.17
-          with:
-            notebook-dir: notebooks
+  test:
+    uses: tschm/marimushka/.github/workflows/test.yml@v0.0.17
+    with:
+      notebook-dir: notebooks
