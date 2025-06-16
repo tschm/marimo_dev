@@ -15,12 +15,13 @@ app = marimo.App(width="medium")
 
 with app.setup:
     import cvxpy as cp
+    import marimo as mo
     import numpy as np
     import plotly.graph_objects as go
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(
         """
     # Problem
@@ -31,15 +32,8 @@ def _(mo):
     return
 
 
-@app.cell(hide_code=True)
-def _():
-    import marimo as mo
-
-    return (mo,)
-
-
 @app.cell
-def _(mo):
+def _():
     mo.md("""## Generate a cloud of points""")
     return
 
@@ -74,7 +68,7 @@ def _(pos):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md("""## Compute with cvxpy""")
     return
 
