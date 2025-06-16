@@ -5,10 +5,6 @@
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://github.com/renovatebot/renovate)
 [![Python Version](https://img.shields.io/badge/python-3.12%20%7C%203.13-blue)](https://www.python.org/)
 
-[![pre-commit](https://github.com/tschm/marimo_dev/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/tschm/marimo_dev/actions/workflows/pre-commit.yml)
-[![Marimo Notebooks](https://github.com/tschm/marimo_dev/actions/workflows/marimo.yml/badge.svg)](https://github.com/tschm/marimo_dev/actions/workflows/marimo.yml)
-[![Release](https://github.com/tschm/marimo_dev/actions/workflows/release.yml/badge.svg)](https://github.com/tschm/marimo_dev/actions/workflows/release.yml)
-
 [![GitHub repo size](https://img.shields.io/github/repo-size/tschm/marimo_dev)](https://github.com/tschm/marimo_dev)
 [![GitHub forks](https://img.shields.io/github/forks/tschm/marimo_dev)](https://github.com/tschm/marimo_dev/network/members)
 [![GitHub last commit](https://img.shields.io/github/last-commit/tschm/marimo_dev)](https://github.com/tschm/marimo_dev/commits)
