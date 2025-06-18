@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
       # Export notebooks and publish them
-      - uses: tschm/marimushka/actions/export@v0.0.17
+      - uses: tschm/marimushka/actions/export@v0.0.23
         with:
           notebooks: notebooks         # Directory containing the notebooks to export as plain html notebooks
           apps: notebooks              # Directory containing the notebooks to export as apps
