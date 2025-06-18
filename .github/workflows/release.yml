@@ -29,9 +29,22 @@ jobs:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
       # Export notebooks and publish them
-      - uses: tschm/marimushka/actions/export@v0.0.17
+      - uses: jebel-quant/marimushka@v0.1.1
         with:
           notebooks: notebooks         # Directory containing the notebooks to export as plain html notebooks
           apps: notebooks              # Directory containing the notebooks to export as apps
           # notebooks_wasm: notebooks    # Directory containing the notebooks to export as interactive notebooks
-          publish: 'true'  # Enable publishing of the exported notebooks
+
+  book:
+    runs-on: ubuntu-latest
+    needs: publish
+
+    environment:
+      name: github-pages
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: tschm/cradle/actions/book@v0.1.72
