@@ -48,3 +48,9 @@ jobs:
 
     steps:
       - uses: tschm/cradle/actions/book@v0.1.75
+        with:
+          title: "Marimo DevContainer"
+          links: |
+            {
+              "Notebooks": "./marimushka"
+            }
