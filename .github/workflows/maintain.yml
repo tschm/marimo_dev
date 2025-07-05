@@ -23,7 +23,7 @@ jobs:
   # Run tests on the marimo notebooks
   test:
     # Use a reusable workflow from the marimushka repository
-    uses: jebel-quant/marimushka/.github/workflows/test.yml@v0.1.2
+    uses: jebel-quant/marimushka/.github/workflows/test.yml@v0.1.3
     with:
       # Specify the directory containing the notebooks to test
       notebook-dir: notebooks

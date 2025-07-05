@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
     steps:
       # Export notebooks and publish them
-      - uses: jebel-quant/marimushka@v0.1.2
+      - uses: jebel-quant/marimushka@v0.1.3
         with:
           notebooks: notebooks         # Directory containing the notebooks to export as plain html notebooks
           apps: notebooks              # Directory containing the notebooks to export as apps
