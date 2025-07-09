@@ -18,7 +18,7 @@ jobs:
     steps:
       # Run pre-commit checks using the cradle action
       # This checks code formatting, linting, and other quality checks
-      - uses: tschm/cradle/actions/pre-commit@v0.1.81
+      - uses: tschm/cradle/actions/pre-commit@v0.2.1
 
   # Run tests on the marimo notebooks
   test:
