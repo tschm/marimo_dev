@@ -19,7 +19,7 @@ jobs:
     steps:
       # Generate a new version tag based on conventional commits
       - name: Generate Tag
-        uses: tschm/cradle/actions/tag@v0.2.1
+        uses: tschm/cradle/actions/tag@v0.3.01
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
 
@@ -47,7 +47,7 @@ jobs:
       id-token: write
 
     steps:
-      - uses: tschm/cradle/actions/book@v0.2.1
+      - uses: tschm/cradle/actions/book@v0.3.01
         with:
           title: "Marimo DevContainer"
           links: |
