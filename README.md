@@ -90,7 +90,8 @@ but you can replace it with a custom image if needed.
 
 #### VSCode Extensions
 
-marimo-team.vscode-marimo: This extension integrates Marimo with VS Code, allowing you to trigger an embedded server when needed.
+marimo-team.vscode-marimo: This extension integrates Marimo with VS Code,
+allowing you to trigger an embedded server when needed.
 ms-python.python: This extension provides Python support and is useful when working with uv.
 
 #### On Create Command
@@ -114,7 +115,9 @@ use the DevContainer in local VS Code. The steps are as follows:
 
 - Push the configuration to your repository.
 - Open the repository in GitHub Codespaces or VSCode with the DevContainer.
-- The Marimo server will be started automatically in the background by the postStartCommand.
+- The Marimo server will be started automatically in the background
+by the postStartCommand.
+
 You can move between VS Code and this server back and forth.
 
 - VS Code Embedded Server
@@ -122,7 +125,8 @@ Ensure the marimo-team.vscode-marimo extension is installed in the DevContainer.
 You can toggle the embedded server using the extension's command palette
 options or configure it to start automatically upon workspace open.
 
-This setup allows you to work both with an external Marimo server and an embedded one,
+This setup allows you to work both with an external Marimo server
+and an embedded one,
 depending on the mode you're in, and provides an
 integrated environment for working with Marimo in VS Code.
 

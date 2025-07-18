@@ -8,19 +8,20 @@ line-length = 120
 
 # Enable all recommended rules by default
 lint.select = [
-    "E",   # pycodestyle errors
-    "F",   # pyflakes
-    "W",   # pycodestyle warnings
-    "I",   # isort
-    "N",   # pep8-naming
-    "UP",  # pyupgrade
-    "B",   # flake8-bugbear
-    "C4",  # flake8-comprehensions
-    "SIM", # flake8-simplify
-    "ARG", # flake8-unused-arguments
-    "PTH", # flake8-use-pathlib
-    "NPY", # NumPy-specific rules
-    "RUF", # Ruff-specific rules
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "W",    # pycodestyle warnings
+    "I",    # isort
+    "N",    # pep8-naming
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+    "ARG",  # flake8-unused-arguments
+    "PTH",  # flake8-use-pathlib
+    "NPY",  # NumPy-specific rules
+    "RUF",  # Ruff-specific rules
+    "W291", # trailing spaces
 ]
 
 # Ignore specific rules
