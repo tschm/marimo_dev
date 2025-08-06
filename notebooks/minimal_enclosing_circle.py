@@ -8,6 +8,12 @@
 #     "numpy==2.3.0",
 # ]
 # ///
+"""Minimal enclosing circle computation using various optimization methods.
+
+This notebook demonstrates how to compute the smallest enclosing ball for a set of points
+in multiple dimensions using CVXPY and other optimization tools.
+"""
+
 import marimo
 
 __generated_with = "0.13.15"
@@ -26,7 +32,8 @@ def _():
         """
     # Problem
 
-    We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions. We use a variety of tools and compare their performance.
+    We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions.
+    We use a variety of tools and compare their performance.
     """
     )
     return
@@ -75,6 +82,15 @@ def _():
 
 @app.function
 def min_circle_cvx(points, **kwargs):
+    """Compute the minimum enclosing circle using CVXPY.
+
+    Args:
+        points: Array of shape (N, d) containing N points in d dimensions
+        **kwargs: Additional arguments to pass to the CVXPY solver
+
+    Returns:
+        Dictionary containing the radius and midpoint of the minimum enclosing circle
+    """
     # cvxpy variable for the radius
     r = cp.Variable(1, name="Radius")
     # cvxpy variable for the midpoint

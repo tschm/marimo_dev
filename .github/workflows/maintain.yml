@@ -12,14 +12,6 @@ permissions:
   contents: 'read'  # Read-only access to repository contents
 
 jobs:
-  # Run pre-commit hooks to ensure code quality and consistency
-  pre-commit:
-    runs-on: ubuntu-latest
-    steps:
-      # Run pre-commit checks using the cradle action
-      # This checks code formatting, linting, and other quality checks
-      - uses: tschm/cradle/actions/pre-commit@v0.3.06
-
   # Run tests on the marimo notebooks
   test:
     # Use a reusable workflow from the marimushka repository
