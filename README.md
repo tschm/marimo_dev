@@ -53,31 +53,23 @@ Example devcontainer.json
 
 ```json
 {
-    "name": "Marimo Dev Container",
-    "image": "mcr.microsoft.com/devcontainers/python:3.12",
-    "hostRequirements": {
-        "cpus": 4
-    },
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {}
-    },
-    "forwardPorts": [8080],
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "python.linting.enabled": true,
-                "python.linting.pylintEnabled": true,
-            },
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "marimo-team.vscode-marimo"
-            ]
-        }
-    },
-    "onCreateCommand": ".devcontainer/startup.sh",
-    "postStartCommand": "uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token",
-    "remoteUser": "vscode"
+  "name": "Marimo Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && uv venv && ([ -f pyproject.toml ] && uv sync --all-extras || true) && uv pip install marimo",
+  "postStartCommand": "[ -f .venv/bin/activate ] && uv run marimo --yes edit --host=localhost --port=8080 --headless --no-token || echo '⚠️ Marimo failed to start'",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "marimo-ai.marimo-vscode"
+      ]
+    }
+  }
 }
 ```
 
