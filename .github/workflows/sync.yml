@@ -38,3 +38,5 @@ jobs:
           source: ".github/template.yml"
           branch: "template-updates"
           commit-message: "chore: sync template files"
+          automerge: true
+
