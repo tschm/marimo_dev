@@ -3,7 +3,6 @@ template-branch: "main"
 include: |
     .devcontainer
     .github
-    taskfiles
     tests
     .editorconfig
     .gitignore
@@ -12,4 +11,3 @@ include: |
     CONTRIBUTING.md
     Makefile
     ruff.toml
-    Taskfile.yml
