@@ -12,5 +12,7 @@ include:
 - Makefile
 - ruff.toml
 - .rhiza
+- book
+- renovate.json
 exclude:
 - .github/workflows/docker.yml
