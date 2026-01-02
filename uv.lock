@@ -353,7 +353,6 @@ dependencies = [
     { name = "cvxpy" },
     { name = "marimo" },
     { name = "numpy" },
-    { name = "packaging" },
     { name = "pandas" },
     { name = "plotly" },
 ]
@@ -363,7 +362,6 @@ requires-dist = [
     { name = "cvxpy", specifier = ">=1.7.5" },
     { name = "marimo", specifier = ">=0.18.4" },
     { name = "numpy", specifier = ">=2.4.0" },
-    { name = "packaging", specifier = ">=25.0" },
     { name = "pandas", specifier = ">=2.3.3" },
     { name = "plotly", specifier = ">=6.5.0" },
 ]

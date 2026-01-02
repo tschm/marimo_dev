@@ -12,7 +12,6 @@ dependencies = [
     "cvxpy>=1.7.5",
     "marimo>=0.18.4",
     "numpy>=2.4.0",
-    "packaging>=25.0",
     "pandas>=2.3.3",
     "plotly>=6.5.0",
 ]
