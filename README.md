@@ -126,6 +126,6 @@ integrated environment for working with Marimo in VS Code.
 
 Add a button to your repo's README file
 
-```bash
+```
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tschm/marimo_dev)
 ```
