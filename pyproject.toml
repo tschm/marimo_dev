@@ -23,7 +23,7 @@ packages = ["src/marimo_dev"]
 
 [tool.deptry]
 [tool.deptry.per_rule_ignores]
-DEP002 = ["cvxpy"]
+DEP002 = ["cvxpy", "pyyaml"]
 
 [tool.deptry.package_module_name_map]
 cvxpy = "cvxpy"
