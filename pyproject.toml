@@ -14,8 +14,22 @@ dependencies = [
     "numpy>=2.4.0",
     "pandas>=2.3.3",
     "plotly>=6.5.0",
+    "pyyaml>=6.0",
 ]
 
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/marimo_dev"]
+
+[tool.deptry]
+[tool.deptry.per_rule_ignores]
+DEP002 = ["cvxpy"]
+
+[tool.deptry.package_module_name_map]
+cvxpy = "cvxpy"
+marimo = "marimo"
+numpy = "numpy"
+pandas = "pandas"
+plotly = "plotly"
+pyyaml = "yaml"
+

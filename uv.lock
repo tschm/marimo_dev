@@ -355,6 +355,7 @@ dependencies = [
     { name = "numpy" },
     { name = "pandas" },
     { name = "plotly" },
+    { name = "pyyaml" },
 ]
 
 [package.metadata]
@@ -364,6 +365,7 @@ requires-dist = [
     { name = "numpy", specifier = ">=2.4.0" },
     { name = "pandas", specifier = ">=2.3.3" },
     { name = "plotly", specifier = ">=6.5.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
 ]
 
 [[package]]
