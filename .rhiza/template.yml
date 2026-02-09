@@ -1,18 +1,18 @@
 template-repository: jebel-quant/rhiza
 template-branch: main
 include:
-- .devcontainer
-- .github
-- tests
-- .editorconfig
-- .gitignore
-- .pre-commit-config.yaml
-- CODE_OF_CONDUCT.md
-- CONTRIBUTING.md
-- Makefile
-- ruff.toml
-- .rhiza
-- book
-- renovate.json
+  - .devcontainer
+  - .github
+  - .editorconfig
+  - .gitignore
+  - .pre-commit-config.yaml
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - Makefile
+  - ruff.toml
+  - .rhiza
+  - book
+  - renovate.json
 exclude:
-- .github/workflows/docker.yml
+  - .github/workflows/rhiza_docker.yml
+  - .github/workflows/rhiza_benchmarks.yml
