@@ -1,18 +1,10 @@
-template-repository: jebel-quant/rhiza
-template-branch: main
-include:
-  - .devcontainer
-  - .github
-  - .editorconfig
-  - .gitignore
-  - .pre-commit-config.yaml
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - Makefile
-  - ruff.toml
-  - .rhiza
+repository: "jebel-quant/rhiza"
+ref: "v0.7.5"
+
+templates:
+  - core
+  - github
+  - legal
   - book
-  - renovate.json
-exclude:
-  - .github/workflows/rhiza_docker.yml
-  - .github/workflows/rhiza_benchmarks.yml
+  - marimo
+  - devcontainer
