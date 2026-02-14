@@ -8,3 +8,5 @@ templates:
   - book
   - marimo
   - devcontainer
+  - tests
+
