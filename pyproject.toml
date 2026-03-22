@@ -16,7 +16,8 @@ dependencies = [
     "plotly>=6.5.0",
     "pyyaml>=6.0",
 ]
-
+license = "MIT"
+license-files = ["LICENSE"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/marimo_dev"]
