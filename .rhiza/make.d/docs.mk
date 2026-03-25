@@ -28,7 +28,6 @@ mkdocs-build:: install-uv ## build MkDocs documentation site
 	    --with "pymdown-extensions>=10.0" \
 	    --with "mkdocs<2.0" \
 	    --with "mkdocstrings[python]>=0.24" \
-	    --with "mkdocs-jupyter>=0.24" \
 	    --with "marimo>=0.16.3" \
 	    mkdocs build \
 	    -f "$(MKDOCS_CONFIG)" \
@@ -46,7 +45,6 @@ mkdocs-serve: install-uv ## serve MkDocs site with live reload
 	    --with "pymdown-extensions>=10.0" \
 	    --with "mkdocs<2.0" \
 	    --with "mkdocstrings[python]>=0.24" \
-	    --with "mkdocs-jupyter>=0.24" \
 	    mkdocs serve \
 	    -f "$(MKDOCS_CONFIG)"; \
 	else \
