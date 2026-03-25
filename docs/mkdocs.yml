@@ -1,0 +1,46 @@
+site_name: marimo_dev
+site_description: Documentation for marimo_dev
+docs_dir: .
+site_dir: ../_mkdocs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_source: true
+  - mkdocs-jupyter:
+      include: ["notebooks/*.py"]
+      execute: false
+      include_source: true
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Architecture: ARCHITECTURE.md
+  - Marimo Notebooks: MARIMO.md
+  - Tests: TESTS.md
+  - Security: SECURITY.md
+  - Glossary: GLOSSARY.md
+  - Quick Reference: QUICK_REFERENCE.md
+  - Customization: CUSTOMIZATION.md
+  - Book: BOOK.md
+  - Demo: DEMO.md
+  - API Reference:
+      - Overview: api/index.md
