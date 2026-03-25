@@ -59,33 +59,12 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
 	done
-	@if [ -f "docs/reports/test-report/report.html" ]; then \
-	  printf "${BLUE}[INFO] Generating docs/report-test.md with iframe${RESET}\n"; \
-	  printf "# Test Report\n\n<iframe src=\"../reports/test-report/report.html\" width=\"100%%\" height=\"800px\" frameborder=\"0\"></iframe>\n" > docs/report-test.md; \
-	else \
-	  printf "${BLUE}[INFO] Generating docs/report-test.md with no-tests notice${RESET}\n"; \
-	  printf "# Test Report\n\nNo test report available. Add tests in the \`tests/\` directory to see results here.\n" > docs/report-test.md; \
-	fi
-	@if [ -f "docs/reports/hypothesis/report.html" ]; then \
-	  printf "${BLUE}[INFO] Generating docs/report-hypothesis.md with iframe${RESET}\n"; \
-	  printf "# Hypothesis Report\n\n<iframe src=\"../reports/hypothesis/report.html\" width=\"100%%\" height=\"800px\" frameborder=\"0\"></iframe>\n" > docs/report-hypothesis.md; \
-	else \
-	  printf "${BLUE}[INFO] Generating docs/report-hypothesis.md with no-hypothesis notice${RESET}\n"; \
-	  printf "# Hypothesis Report\n\nNo hypothesis tests found. Add property-based tests using the \`hypothesis\` library to see results here.\n" > docs/report-hypothesis.md; \
-	fi
-	@if [ -f "docs/reports/coverage/index.html" ]; then \
-	  printf "${BLUE}[INFO] Generating docs/report-coverage.md with iframe${RESET}\n"; \
-	  printf "# Coverage Report\n\n<iframe src=\"../reports/coverage/index.html\" width=\"100%%\" height=\"800px\" frameborder=\"0\"></iframe>\n" > docs/report-coverage.md; \
-	else \
-	  printf "${BLUE}[INFO] Generating docs/report-coverage.md with no-coverage notice${RESET}\n"; \
-	  printf "# Coverage Report\n\nNo coverage data available. Coverage is only measured when a \`src/\` directory exists.\n" > docs/report-coverage.md; \
-	fi
 	@printf "${BLUE}[INFO] Generating docs/reports.md index${RESET}\n"
 	@printf "# Reports\n\n" > docs/reports.md
-	@for md in report-test.md report-hypothesis.md report-coverage.md; do \
-	  name=$$(echo "$$md" | sed 's/report-//' | sed 's/\.md//'); \
-	  echo "- [$$name]($$md)" >> docs/reports.md; \
-	done
+	@[ -f "docs/reports/test-report/report.html" ] && echo "- [Test Report](reports/test-report/report.html)" >> docs/reports.md || true
+	@[ -f "docs/reports/hypothesis/report.html" ]  && echo "- [Hypothesis Report](reports/hypothesis/report.html)" >> docs/reports.md || true
+	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)" >> docs/reports.md || \
+	  echo "- Coverage Report — no data (requires a \`src/\` directory)" >> docs/reports.md
 	@if [ -d "book/marimo/notebooks" ]; then \
 	  printf "${BLUE}[INFO] Exporting Marimo notebooks to docs/notebooks/...${RESET}\n"; \
 	  mkdir -p docs/notebooks; \
