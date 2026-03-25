@@ -18,7 +18,7 @@ BOOK_OUTPUT ?= _book
 
 ##@ Book
 
-_book-reports:
+_book-reports: test benchmark stress hypothesis-test
 	@mkdir -p docs/reports
 	@for src_dir in \
 	  "_tests/html-coverage:reports/coverage" \
@@ -42,11 +42,10 @@ _book-reports:
 
 _book-notebooks:
 	@if [ -d "book/marimo/notebooks" ]; then \
-	  mkdir -p docs/notebooks; \
+	  rm -rf docs/notebooks && mkdir -p docs/notebooks; \
 	  for nb in book/marimo/notebooks/*.py; do \
 	    name=$$(basename "$$nb" .py); \
 	    printf "${BLUE}[INFO] Exporting $$nb${RESET}\n"; \
-	    rm -f "docs/notebooks/$$name.html"; \
 	    uv run marimo export html --sandbox "$$nb" -o "docs/notebooks/$$name.html"; \
 	  done; \
 	  printf "# Marimo Notebooks\n\n" > docs/notebooks.md; \
@@ -56,7 +55,7 @@ _book-notebooks:
 	  done; \
 	fi
 
-book:: test benchmark stress hypothesis-test _book-reports _book-notebooks ## compile the companion book via MkDocs
+book:: _book-reports _book-notebooks ## compile the companion book via MkDocs
 	@$(MAKE) mkdocs-build MKDOCS_OUTPUT=$(BOOK_OUTPUT)
 	@touch "$(BOOK_OUTPUT)/.nojekyll"
 	@printf "${GREEN}[SUCCESS] Book built at $(BOOK_OUTPUT)/${RESET}\n"
