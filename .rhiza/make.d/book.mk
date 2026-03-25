@@ -63,10 +63,15 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
 	done
-	@if [ -d "book/marimo" ]; then \
-	  printf "${BLUE}[INFO] Copying Marimo notebooks into docs/notebooks/...${RESET}\n"; \
+	@if [ -d "book/marimo/notebooks" ]; then \
+	  printf "${BLUE}[INFO] Exporting Marimo notebooks to docs/notebooks/...${RESET}\n"; \
 	  mkdir -p docs/notebooks; \
-	  cp -r book/marimo/notebooks/. docs/notebooks/; \
+	  for nb in book/marimo/notebooks/*.py; do \
+	    name=$$(basename "$$nb" .py); \
+	    printf "${BLUE}[INFO] Exporting $$nb -> docs/notebooks/$$name.html${RESET}\n"; \
+	    rm -f "docs/notebooks/$$name.html"; \
+	    uv run marimo export html --sandbox "$$nb" -o "docs/notebooks/$$name.html"; \
+	  done; \
 	fi
 	@$(MAKE) mkdocs-build MKDOCS_OUTPUT=$(BOOK_OUTPUT)
 	@touch "$(BOOK_OUTPUT)/.nojekyll"

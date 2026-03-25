@@ -19,10 +19,6 @@ plugins:
           options:
             docstring_style: google
             show_source: true
-  - mkdocs-jupyter:
-      include: ["notebooks/*.py"]
-      execute: false
-      include_source: true
 
 markdown_extensions:
   - pymdownx.highlight
@@ -36,8 +32,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Marimo Notebooks:
-      - Minimal Enclosing Circle: notebooks/minimal_enclosing_circle.py
-      - Rhiza: notebooks/rhiza.py
+      - Minimal Enclosing Circle: notebook-minimal_enclosing_circle.md
+      - Rhiza: notebook-rhiza.md
   - Reports:
       - Test Report: report-test.md
       - Hypothesis: report-hypothesis.md
