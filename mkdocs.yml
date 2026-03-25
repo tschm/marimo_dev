@@ -32,9 +32,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Marimo Notebooks: notebooks.md
-  - Reports:
-      - Test Report: report-test.md
-      - Hypothesis: report-hypothesis.md
-      - Coverage: report-coverage.md
+  - Reports: reports.md
   - API Reference:
       - Overview: api/index.md

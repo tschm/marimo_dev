@@ -80,6 +80,12 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	  printf "${BLUE}[INFO] Generating docs/report-coverage.md with no-coverage notice${RESET}\n"; \
 	  printf "# Coverage Report\n\nNo coverage data available. Coverage is only measured when a \`src/\` directory exists.\n" > docs/report-coverage.md; \
 	fi
+	@printf "${BLUE}[INFO] Generating docs/reports.md index${RESET}\n"
+	@printf "# Reports\n\n" > docs/reports.md
+	@for md in report-test.md report-hypothesis.md report-coverage.md; do \
+	  name=$$(echo "$$md" | sed 's/report-//' | sed 's/\.md//'); \
+	  echo "- [$$name]($$md)" >> docs/reports.md; \
+	done
 	@if [ -d "book/marimo/notebooks" ]; then \
 	  printf "${BLUE}[INFO] Exporting Marimo notebooks to docs/notebooks/...${RESET}\n"; \
 	  mkdir -p docs/notebooks; \
