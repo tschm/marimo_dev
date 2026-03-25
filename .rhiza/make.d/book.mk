@@ -1,6 +1,6 @@
 ## book.mk - Book-building targets (MkDocs-based)
 
-.PHONY: mkdocs-build book test benchmark stress hypothesis-test
+.PHONY: mkdocs-build book test benchmark stress hypothesis-test _book-reports _book-notebooks
 
 # No-op stubs — overridden by test.mk / bench.mk when present
 test:: ; @:
@@ -18,8 +18,7 @@ BOOK_OUTPUT ?= _book
 
 ##@ Book
 
-book:: test benchmark stress hypothesis-test ## compile the companion book via MkDocs
-	@printf "${BLUE}[INFO] Copying test artefacts into docs/reports/...${RESET}\n"
+_book-reports:
 	@mkdir -p docs/reports
 	@for src_dir in \
 	  "_tests/html-coverage:reports/coverage" \
@@ -40,6 +39,8 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	@[ -f "docs/reports/hypothesis/report.html" ]  && echo "- [Hypothesis Report](reports/hypothesis/report.html)" >> docs/reports.md || true
 	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)"      >> docs/reports.md || \
 	  echo "- Coverage Report — no data (requires a \`src/\` directory)" >> docs/reports.md
+
+_book-notebooks:
 	@if [ -d "book/marimo/notebooks" ]; then \
 	  mkdir -p docs/notebooks; \
 	  for nb in book/marimo/notebooks/*.py; do \
@@ -54,6 +55,8 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	    echo "- [$$name](notebooks/$$name.html)" >> docs/notebooks.md; \
 	  done; \
 	fi
+
+book:: test benchmark stress hypothesis-test _book-reports _book-notebooks ## compile the companion book via MkDocs
 	@$(MAKE) mkdocs-build MKDOCS_OUTPUT=$(BOOK_OUTPUT)
 	@touch "$(BOOK_OUTPUT)/.nojekyll"
 	@printf "${GREEN}[SUCCESS] Book built at $(BOOK_OUTPUT)/${RESET}\n"
