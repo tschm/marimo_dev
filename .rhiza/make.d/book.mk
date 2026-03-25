@@ -55,14 +55,17 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	    printf "${BLUE}[INFO] Copying $$src -> $$dest${RESET}\n"; \
 	    mkdir -p "$$dest"; \
 	    cp -r "$$src/." "$$dest/"; \
-	  elif [ "$${src_dir#*:}" = "reports/coverage" ]; then \
-	    printf "${YELLOW}[WARN] $$src not found, creating placeholder${RESET}\n"; \
-	    mkdir -p "$$dest"; \
-	    printf '<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Coverage Report</title><link href="../test-report/assets/style.css" rel="stylesheet" type="text/css"/></head><body><h1>Coverage Report</h1><p>No coverage data available. Coverage is only measured when a <code>src/</code> directory exists. This project has no <code>src/</code> layout.</p></body></html>' > "$$dest/index.html"; \
 	  else \
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
 	done
+	@if [ -f "docs/reports/coverage/index.html" ]; then \
+	  printf "${BLUE}[INFO] Generating docs/report-coverage.md with iframe${RESET}\n"; \
+	  printf "# Coverage Report\n\n<iframe src=\"../reports/coverage/index.html\" width=\"100%%\" height=\"800px\" frameborder=\"0\"></iframe>\n" > docs/report-coverage.md; \
+	else \
+	  printf "${BLUE}[INFO] Generating docs/report-coverage.md with no-coverage notice${RESET}\n"; \
+	  printf "# Coverage Report\n\nNo coverage data available. Coverage is only measured when a \`src/\` directory exists.\n" > docs/report-coverage.md; \
+	fi
 	@if [ -d "book/marimo/notebooks" ]; then \
 	  printf "${BLUE}[INFO] Exporting Marimo notebooks to docs/notebooks/...${RESET}\n"; \
 	  mkdir -p docs/notebooks; \

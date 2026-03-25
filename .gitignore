@@ -16,6 +16,7 @@ _tests
 _book
 docs/notebooks/
 docs/notebooks.md
+docs/report-coverage.md
 docs/reports/
 _pdoc
 _marimushka
