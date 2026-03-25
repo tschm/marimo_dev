@@ -58,7 +58,7 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	  elif [ "$${src_dir#*:}" = "reports/coverage" ]; then \
 	    printf "${YELLOW}[WARN] $$src not found, creating placeholder${RESET}\n"; \
 	    mkdir -p "$$dest"; \
-	    printf '<html><body><h1>No coverage report</h1><p>Coverage is only measured when a <code>src/</code> directory exists. This project has no <code>src/</code> layout.</p></body></html>' > "$$dest/index.html"; \
+	    printf '<html><head><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:2rem;color:#333;}code{background:#f0f0f0;padding:0.1em 0.3em;border-radius:3px;}</style></head><body><h1>No coverage report</h1><p>Coverage is only measured when a <code>src/</code> directory exists. This project has no <code>src/</code> layout.</p></body></html>' > "$$dest/index.html"; \
 	  else \
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
