@@ -33,5 +33,3 @@ nav:
   - Home: index.md
   - Marimo Notebooks: notebooks.md
   - Reports: reports.md
-  - API Reference:
-      - Overview: api/index.md
