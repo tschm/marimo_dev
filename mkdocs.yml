@@ -20,7 +20,7 @@ plugins:
             docstring_style: google
             show_source: true
   - mkdocs-jupyter:
-      include: ["notebooks/*.py"]
+      include: ["book/marimo/notebooks/*.py"]
       execute: false
       include_source: true
 
@@ -37,10 +37,6 @@ nav:
   - Marimo Notebooks: MARIMO.md
   - Tests: TESTS.md
   - Security: SECURITY.md
-  - Glossary: GLOSSARY.md
-  - Quick Reference: QUICK_REFERENCE.md
-  - Customization: CUSTOMIZATION.md
-  - Book: BOOK.md
   - Demo: DEMO.md
   - API Reference:
       - Overview: api/index.md
