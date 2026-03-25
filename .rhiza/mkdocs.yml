@@ -24,7 +24,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.snippets:
-      base_path: [".."]
+      base_path: ["."]
   - admonition
   - toc:
       permalink: true
