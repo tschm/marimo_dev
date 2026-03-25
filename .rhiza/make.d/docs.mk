@@ -29,6 +29,7 @@ mkdocs-build:: install-uv ## build MkDocs documentation site
 	    --with "mkdocs<2.0" \
 	    --with "mkdocstrings[python]>=0.24" \
 	    --with "mkdocs-jupyter>=0.24" \
+	    --with "marimo>=0.16.3" \
 	    mkdocs build \
 	    -f "$(MKDOCS_CONFIG)" \
 	    -d "$$MKDOCS_OUTPUT_ABS"; \

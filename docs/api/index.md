@@ -1,7 +1,7 @@
 # API Reference
 
-Auto-generated API documentation from Python docstrings.
+This project is built around [Marimo](https://marimo.io) notebooks and does not
+expose a traditional Python package API. The notebooks in `book/marimo/` serve
+as the primary interface — each one is a self-contained, executable document.
 
-::: marimo_dev
-    options:
-      show_submodules: true
+See the [Marimo Notebooks](../MARIMO.md) page for an overview of available notebooks.
