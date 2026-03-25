@@ -15,6 +15,7 @@ __marimo__
 _tests
 _book
 docs/notebooks/
+docs/notebooks.md
 docs/reports/
 _pdoc
 _marimushka
