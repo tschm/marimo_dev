@@ -30,7 +30,7 @@ with app.setup:
 def _():
     mo.md(
         """
-    # Problem
+    # Minimal enclosing circle
 
     We compute the radius and center of the smallest enclosing ball for $N$ points in $d$ dimensions.
     We use a variety of tools and compare their performance.
