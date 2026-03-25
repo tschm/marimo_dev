@@ -1,46 +1,23 @@
 ## book.mk - Book-building targets (MkDocs-based)
-# This file is included by the main Makefile.
-# It builds the companion book using MkDocs with mkdocstrings + mkdocs-jupyter.
 
-.PHONY: marimushka mkdocs-build book test benchmark stress hypothesis-test
+.PHONY: mkdocs-build book test benchmark stress hypothesis-test
 
-# Define default no-op targets for test-related book dependencies.
-# These are used when test.mk is not available or tests are not installed,
-# ensuring 'make book' succeeds even without a test environment.
+# No-op stubs — overridden by test.mk / bench.mk when present
 test:: ; @:
 benchmark:: ; @:
 stress:: ; @:
 hypothesis-test:: ; @:
 
-# Default output directory for Marimushka (HTML exports of notebooks)
-MARIMUSHKA_OUTPUT ?= _marimushka
-
-# Keep marimushka for backwards compatibility (no longer a book dependency)
-marimushka:: install-uv
-	@if [ ! -d "book/marimo" ]; then \
-	  printf "${BLUE}[INFO] No Marimo directory found, skipping marimushka${RESET}\n"; \
-	fi
-
-# Define a default no-op mkdocs-build target that will be used
-# when .rhiza/make.d/docs.mk doesn't exist or doesn't define mkdocs-build
+# No-op stub — overridden by docs.mk when present
 mkdocs-build:: install-uv
 	@if [ ! -f "mkdocs.yml" ]; then \
 	  printf "${BLUE}[INFO] No mkdocs.yml found, skipping MkDocs${RESET}\n"; \
 	fi
 
-# Default output directory for the book
 BOOK_OUTPUT ?= _book
-
-# MkDocs config file location
-MKDOCS_CONFIG ?= mkdocs.yml
 
 ##@ Book
 
-# The 'book' target assembles the final documentation book using MkDocs.
-# 1. Runs test/benchmark/stress/hypothesis-test to generate HTML artefacts.
-# 2. Copies generated HTML artefact directories into docs/reports/ (if they exist).
-# 3. Copies Marimo notebooks into docs/notebooks/ for mkdocs-jupyter rendering.
-# 4. Runs mkdocs build to produce the final site in _book/.
 book:: test benchmark stress hypothesis-test ## compile the companion book via MkDocs
 	@printf "${BLUE}[INFO] Copying test artefacts into docs/reports/...${RESET}\n"
 	@mkdir -p docs/reports
@@ -53,28 +30,24 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	  src=$${src_dir%%:*}; dest=docs/$${src_dir#*:}; \
 	  if [ -d "$$src" ] && [ -n "$$(ls -A "$$src" 2>/dev/null)" ]; then \
 	    printf "${BLUE}[INFO] Copying $$src -> $$dest${RESET}\n"; \
-	    mkdir -p "$$dest"; \
-	    cp -r "$$src/." "$$dest/"; \
+	    mkdir -p "$$dest"; cp -r "$$src/." "$$dest/"; \
 	  else \
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
 	done
-	@printf "${BLUE}[INFO] Generating docs/reports.md index${RESET}\n"
 	@printf "# Reports\n\n" > docs/reports.md
-	@[ -f "docs/reports/test-report/report.html" ] && echo "- [Test Report](reports/test-report/report.html)" >> docs/reports.md || true
+	@[ -f "docs/reports/test-report/report.html" ] && echo "- [Test Report](reports/test-report/report.html)"       >> docs/reports.md || true
 	@[ -f "docs/reports/hypothesis/report.html" ]  && echo "- [Hypothesis Report](reports/hypothesis/report.html)" >> docs/reports.md || true
-	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)" >> docs/reports.md || \
+	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)"      >> docs/reports.md || \
 	  echo "- Coverage Report — no data (requires a \`src/\` directory)" >> docs/reports.md
 	@if [ -d "book/marimo/notebooks" ]; then \
-	  printf "${BLUE}[INFO] Exporting Marimo notebooks to docs/notebooks/...${RESET}\n"; \
 	  mkdir -p docs/notebooks; \
 	  for nb in book/marimo/notebooks/*.py; do \
 	    name=$$(basename "$$nb" .py); \
-	    printf "${BLUE}[INFO] Exporting $$nb -> docs/notebooks/$$name.html${RESET}\n"; \
+	    printf "${BLUE}[INFO] Exporting $$nb${RESET}\n"; \
 	    rm -f "docs/notebooks/$$name.html"; \
 	    uv run marimo export html --sandbox "$$nb" -o "docs/notebooks/$$name.html"; \
 	  done; \
-	  printf "${BLUE}[INFO] Generating docs/notebooks.md index${RESET}\n"; \
 	  printf "# Marimo Notebooks\n\n" > docs/notebooks.md; \
 	  for html in docs/notebooks/*.html; do \
 	    name=$$(basename "$$html" .html); \
