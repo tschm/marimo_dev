@@ -27,6 +27,8 @@ plugins:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: ["."]
   - admonition
   - toc:
       permalink: true
@@ -34,7 +36,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Marimo Notebooks:
-      - Overview: MARIMO.md
       - Minimal Enclosing Circle: notebooks/minimal_enclosing_circle.py
       - Rhiza: notebooks/rhiza.py
   - Reports:
