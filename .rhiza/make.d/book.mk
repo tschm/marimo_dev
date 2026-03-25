@@ -67,3 +67,4 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	@$(MAKE) mkdocs-build MKDOCS_OUTPUT=$(BOOK_OUTPUT)
 	@touch "$(BOOK_OUTPUT)/.nojekyll"
 	@printf "${GREEN}[SUCCESS] Book built at $(BOOK_OUTPUT)/${RESET}\n"
+	@tree $(BOOK_OUTPUT)
