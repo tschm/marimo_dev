@@ -39,8 +39,7 @@ _book-reports: test benchmark stress hypothesis-test
 	@[ -f "docs/reports/hypothesis/report.html" ]  && echo "- [Hypothesis Report](reports/hypothesis/report.html)" >> docs/reports.md || true
 	@[ -f "docs/reports/benchmarks/report.html" ]  && echo "- [Benchmarks](reports/benchmarks/report.html)"        >> docs/reports.md || true
 	@[ -f "docs/reports/stress/report.html" ]      && echo "- [Stress Report](reports/stress/report.html)"          >> docs/reports.md || true
-	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)"      >> docs/reports.md || \
-	  echo "- Coverage Report — no data (requires a \`src/\` directory)" >> docs/reports.md
+	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)"      >> docs/reports.md || true
 
 _book-notebooks:
 	@if [ -d "book/marimo/notebooks" ]; then \
