@@ -51,10 +51,14 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	  "_tests/stress:reports/stress" \
 	  "_tests/hypothesis:reports/hypothesis"; do \
 	  src=$${src_dir%%:*}; dest=docs/$${src_dir#*:}; \
-	  if [ -d "$$src" ]; then \
+	  if [ -d "$$src" ] && [ -n "$$(ls -A "$$src" 2>/dev/null)" ]; then \
 	    printf "${BLUE}[INFO] Copying $$src -> $$dest${RESET}\n"; \
 	    mkdir -p "$$dest"; \
 	    cp -r "$$src/." "$$dest/"; \
+	  elif [ "$${src_dir#*:}" = "reports/coverage" ]; then \
+	    printf "${YELLOW}[WARN] $$src not found, creating placeholder${RESET}\n"; \
+	    mkdir -p "$$dest"; \
+	    printf '<html><body><h1>No coverage report</h1><p>Coverage is only measured when a <code>src/</code> directory exists. This project has no <code>src/</code> layout.</p></body></html>' > "$$dest/index.html"; \
 	  else \
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
