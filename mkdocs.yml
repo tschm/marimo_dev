@@ -1,7 +1,7 @@
 site_name: marimo_dev
 site_description: Documentation for marimo_dev
-docs_dir: .
-site_dir: ../_mkdocs
+docs_dir: docs
+site_dir: _mkdocs
 
 theme:
   name: material
