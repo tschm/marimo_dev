@@ -20,7 +20,7 @@ plugins:
             docstring_style: google
             show_source: true
   - mkdocs-jupyter:
-      include: ["book/marimo/notebooks/*.py"]
+      include: ["notebooks/*.py"]
       execute: false
       include_source: true
 
@@ -33,7 +33,10 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Marimo Notebooks: MARIMO.md
+  - Marimo Notebooks:
+      - Overview: MARIMO.md
+      - Minimal Enclosing Circle: notebooks/minimal_enclosing_circle.py
+      - Rhiza: notebooks/rhiza.py
   - Reports:
       - Test Report: reports/test-report/report.html
       - Hypothesis: reports/hypothesis/report.html

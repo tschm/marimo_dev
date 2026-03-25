@@ -62,7 +62,7 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	@if [ -d "book/marimo" ]; then \
 	  printf "${BLUE}[INFO] Copying Marimo notebooks into docs/notebooks/...${RESET}\n"; \
 	  mkdir -p docs/notebooks; \
-	  cp -r book/marimo/. docs/notebooks/; \
+	  cp -r book/marimo/notebooks/. docs/notebooks/; \
 	fi
 	@$(MAKE) mkdocs-build MKDOCS_OUTPUT=$(BOOK_OUTPUT)
 	@touch "$(BOOK_OUTPUT)/.nojekyll"
