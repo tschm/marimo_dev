@@ -40,5 +40,6 @@ nav:
   - Reports:
       - Test Report: report-test.md
       - Hypothesis: report-hypothesis.md
+      - Coverage: report-coverage.md
   - API Reference:
       - Overview: api/index.md
