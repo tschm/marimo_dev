@@ -38,7 +38,7 @@ nav:
       - Minimal Enclosing Circle: notebooks/minimal_enclosing_circle.py
       - Rhiza: notebooks/rhiza.py
   - Reports:
-      - Test Report: reports/test-report/report.html
-      - Hypothesis: reports/hypothesis/report.html
+      - Test Report: report-test.md
+      - Hypothesis: report-hypothesis.md
   - API Reference:
       - Overview: api/index.md
