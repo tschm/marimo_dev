@@ -31,9 +31,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Marimo Notebooks:
-      - Minimal Enclosing Circle: notebook-minimal_enclosing_circle.md
-      - Rhiza: notebook-rhiza.md
+  - Marimo Notebooks: notebooks.md
   - Reports:
       - Test Report: report-test.md
       - Hypothesis: report-hypothesis.md

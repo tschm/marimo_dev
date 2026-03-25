@@ -72,6 +72,12 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	    rm -f "docs/notebooks/$$name.html"; \
 	    uv run marimo export html --sandbox "$$nb" -o "docs/notebooks/$$name.html"; \
 	  done; \
+	  printf "${BLUE}[INFO] Generating docs/notebooks.md index${RESET}\n"; \
+	  printf "# Marimo Notebooks\n\n" > docs/notebooks.md; \
+	  for html in docs/notebooks/*.html; do \
+	    name=$$(basename "$$html" .html); \
+	    echo "- [$$name](notebooks/$$name.html)" >> docs/notebooks.md; \
+	  done; \
 	fi
 	@$(MAKE) mkdocs-build MKDOCS_OUTPUT=$(BOOK_OUTPUT)
 	@touch "$(BOOK_OUTPUT)/.nojekyll"
