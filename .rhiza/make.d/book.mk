@@ -37,6 +37,7 @@ _book-reports: test benchmark stress hypothesis-test
 	@printf "# Reports\n\n" > docs/reports.md
 	@[ -f "docs/reports/test-report/report.html" ] && echo "- [Test Report](reports/test-report/report.html)"       >> docs/reports.md || true
 	@[ -f "docs/reports/hypothesis/report.html" ]  && echo "- [Hypothesis Report](reports/hypothesis/report.html)" >> docs/reports.md || true
+	@[ -f "docs/reports/benchmarks/report.html" ]  && echo "- [Benchmarks](reports/benchmarks/report.html)"        >> docs/reports.md || true
 	@[ -f "docs/reports/coverage/index.html" ]     && echo "- [Coverage Report](reports/coverage/index.html)"      >> docs/reports.md || \
 	  echo "- Coverage Report — no data (requires a \`src/\` directory)" >> docs/reports.md
 
