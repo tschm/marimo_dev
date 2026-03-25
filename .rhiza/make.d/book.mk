@@ -59,6 +59,13 @@ book:: test benchmark stress hypothesis-test ## compile the companion book via M
 	    printf "${YELLOW}[WARN] $$src not found, skipping${RESET}\n"; \
 	  fi; \
 	done
+	@if [ -f "docs/reports/hypothesis/report.html" ]; then \
+	  printf "${BLUE}[INFO] Generating docs/report-hypothesis.md with iframe${RESET}\n"; \
+	  printf "# Hypothesis Report\n\n<iframe src=\"../reports/hypothesis/report.html\" width=\"100%%\" height=\"800px\" frameborder=\"0\"></iframe>\n" > docs/report-hypothesis.md; \
+	else \
+	  printf "${BLUE}[INFO] Generating docs/report-hypothesis.md with no-hypothesis notice${RESET}\n"; \
+	  printf "# Hypothesis Report\n\nNo hypothesis tests found. Add property-based tests using the \`hypothesis\` library to see results here.\n" > docs/report-hypothesis.md; \
+	fi
 	@if [ -f "docs/reports/coverage/index.html" ]; then \
 	  printf "${BLUE}[INFO] Generating docs/report-coverage.md with iframe${RESET}\n"; \
 	  printf "# Coverage Report\n\n<iframe src=\"../reports/coverage/index.html\" width=\"100%%\" height=\"800px\" frameborder=\"0\"></iframe>\n" > docs/report-coverage.md; \
