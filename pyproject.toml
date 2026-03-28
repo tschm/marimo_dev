@@ -18,6 +18,10 @@ dependencies = [
 ]
 license = "MIT"
 license-files = ["LICENSE"]
+classifiers = [
+    "Private :: Do Not Upload"
+]
+
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/marimo_dev"]
