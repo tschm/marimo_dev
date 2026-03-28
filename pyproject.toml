@@ -22,6 +22,9 @@ license-files = ["LICENSE"]
 [tool.hatch.build.targets.wheel]
 packages = ["src/marimo_dev"]
 
+[tool.hatch.publish.index]
+disable = true
+
 [tool.deptry]
 [tool.deptry.per_rule_ignores]
 DEP002 = ["cvxpy", "pyyaml"]
