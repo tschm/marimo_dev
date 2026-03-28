@@ -1,6 +1,6 @@
 ## book.mk - Book-building targets (MkDocs-based)
 
-.PHONY: mkdocs-build book test benchmark stress hypothesis-test _book-reports _book-notebooks
+.PHONY: mkdocs-build book marimushka test benchmark stress hypothesis-test _book-reports _book-notebooks
 
 # No-op stubs — overridden by test.mk / bench.mk when present
 test:: ; @:
